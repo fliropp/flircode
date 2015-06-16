@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='initial-scale=1.0, user-scalable=no')
+    |     
+    meta(charset='utf-8')
+    |     
+    title Vind
+    |     
+    style.
+      html, body, #map-canvas {
+      height: 100%;
+      margin: 0px;
+      padding: 0px
+      }
+    |     
+    script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true')
+    |     
+    script(src='javascripts/map.js')
+    |     
+    script.
+      var local =!{JSON.stringify(forecast)}
+  |   
+  body
+    |          
+    #map-canvas(style='width:79%; height:100%; float:left')
+    |     
+    #content-window(style='width:19%; height:100%; float:left')

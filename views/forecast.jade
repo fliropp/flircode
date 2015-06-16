@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	table
+		each cast, i in forecast
+			tr
+					td= cast.name
+			tr		
+					each val in cast.dir
+						td= val
+			tr
+					each val in cast.dir_deg
+						td= val
+			tr
+					each val in cast.force
+						td= val
+			tr
+					each val in cast.pressure
+						td= val
+			tr
+					each val in cast.time
+						td= moment(val).format("HH:MM")
