@@ -34,8 +34,7 @@ router.get('/vind', function(req,res) {
     collection.find({}, {}, function(e,docs){
 		res.render('map', {
 			 title : "vindtest",
-			"forecast" : docs,
-			 moment : moment
+			"forecast" : docs
 		});
 	});
 	
