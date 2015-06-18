@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var moment = require('moment');
+//var moment = require('moment');
 var html_dir = './public/';
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,8 +19,7 @@ router.get('/forecast', function(req,res) {
 	var collection = db.get('f_cast');
 	collection.find({}, {}, function(e,docs){
 		res.render('forecast', {
-			"forecast" : JSON.stringify(docs),
-			 moment : moment
+			"forecast" : JSON.stringify(docs)
 		});
 	});
 	//res.render('forecast', {forecast: 'hepp'})
