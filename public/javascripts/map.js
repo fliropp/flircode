@@ -2,13 +2,45 @@ function initialize() {
 
   var myLatlng = new google.maps.LatLng(59.542655, 10.617651);
   var mapOptions = {
-    zoom: 9,
+    zoom: 8,
     center: myLatlng
   };
 
 
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
+
+  var con_win = document.getElementById("content-window");
+
+  var times = document.createElement("p");
+  times.setAttribute("id", "times");
+  times.innerHTML =  '<table>' +
+                 '<tr><td><a href="#" onclick=update(1);>' + new Date(local[1].time[1]).getHours() + ':00</a></td></tr>' + 
+                 '<tr><td><a href="#" onclick=update(2);>' + new Date(local[1].time[2]).getHours() + ':00</a></td></tr>' +
+                 '<tr><td><a href="#" onclick=update(3);>' + new Date(local[1].time[3]).getHours() + ':00</a></td></tr>' +
+                 '<tr><td><a href="#" onclick=update(4);>' + new Date(local[1].time[4]).getHours() + ':00</a></td></tr>' +
+                 '<tr><td><a href="#" onclick=update(5);>' + new Date(local[1].time[5]).getHours() + ':00</a></td></tr>' +
+                 '<tr><td><a href="#" onclick=update(6);>' + new Date(local[1].time[6]).getHours() + ':00</a></td></tr>' +
+                 '</table>';
+
+  con_win.appendChild(times);
+
+  var rtw = document.createElement("p");
+  rtw.setAttribute("id", "real_time_wind");
+  rtw.innerHTML = '<h3>REAL TIME WIND</h3>' +
+                    '<table>' +
+                    '<tr><td><a href="http://www.weatherlink.com/user/raasport">Torkilstranda</a></td></tr>' +
+                    '<tr><td><a href="http://www.steilene.nortek.no/">Steilene</a></td></tr>' +
+                    '<tr><td><a href="http://www.vindsiden.no/">Vindsiden</a></td></tr>' +
+                    '<tr><td><a href="http://www.drobak-baatforening.com/weather/Current_Vantage_Pro.htm">Drøbak båthavn</a></td></tr>' +
+                    '<tr><td><a href="http://www.weatherlink.com/user/fulehuk">Fukehuk fyr</a></td></tr>' +
+                    '<tr><td><a href="http://www.weatherlink.com/user/saltnes">Saltnes</a></td></tr>' +
+                    '</table>';
+  con_win.appendChild(rtw);
+
+
+
+  
   for(var i = 0;i<local.length;i++ ){
   
     var lola = new google.maps.LatLng(local[i].latitude, local[i].longitude);
